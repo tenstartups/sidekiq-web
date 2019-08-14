@@ -1,3 +1,3 @@
-# Alpine Linux Docker Image
+# Sidekiq Web Application Docker Image
 
-Alpine linux base docker image with useful packages and tools
+Sidekiq monitoring web application dockerized
