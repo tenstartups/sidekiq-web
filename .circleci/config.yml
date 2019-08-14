@@ -7,7 +7,6 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: curl https://get.docker.com | sh
       - run: docker build --file ${DOCKERFILE} --tag ${DOCKER_IMAGE} .
       - run: docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
       - run: docker push ${DOCKER_IMAGE}
