@@ -15,6 +15,6 @@ COPY config.ru config.ru
 EXPOSE 9292
 
 # Define the healthcheck.
-HEALTHCHECK --interval=15s --timeout=5s CMD "wget http://localhost:9292/stats"
+HEALTHCHECK --interval=15s --timeout=5s CMD "wget -qO- localhost:9292/stats &> /dev/null"
 
 CMD rackup config.ru --host 0.0.0.0
