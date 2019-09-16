@@ -15,12 +15,12 @@ Encoding.default_external = Encoding::UTF_8
 # Configure client
 Sidekiq.configure_client do |config|
   config.redis =
-    if ENV['SIDEKIQ_NAMESPACE'].nil?
+    if ENV['REDIS_NAMESPACE'].nil?
       { url: ENV['REDIS_URL'] }
     else
       {
         url: ENV['REDIS_URL'],
-        namespace: ENV['SIDEKIQ_NAMESPACE']
+        namespace: ENV['REDIS_NAMESPACE']
       }
     end
 end
