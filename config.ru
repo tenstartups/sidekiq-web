@@ -31,8 +31,10 @@ end
 Sidekiq::Web.set :session_secret, ENV['SESSION_SECRET']
 
 # Configure rack middleware
-use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
-use Rack::Protection, except: :http_origin
+Sidekiq::Web.class_eval do
+  use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
+  Sidekiq::Web.use(::Rack::Protection, { use: :authenticity_token, logger: Logger.new(STDOUT), message: "Didn't work!", except: [:http_origin] })
+end
 
 # Run the server
 run Sidekiq::Web
