@@ -7,14 +7,14 @@ FROM ruby:2.6-alpine
 # Set environment variables.
 ENV \
   BUNDLE_DISABLE_SHARED_GEMS=true \
-  BUNDLE_FROZEN=true \
+#  BUNDLE_FROZEN=true \
   BUNDLE_GIT__ALLOW_INSECURE=true \
   BUNDLE_IGNORE_MESSAGES=true \
   BUNDLE_PATH=/usr/local/lib/ruby/bundler \
   BUNDLE_SILENCE_ROOT_WARNING=true
 
 # Install packages.
-RUN apk --update add nodejs && rm -rf /var/cache/apk/*
+RUN apk --update add build-base nodejs && rm -rf /var/cache/apk/*
 
 # Install required ruby gems.
 RUN gem install bundler
@@ -41,4 +41,4 @@ EXPOSE 9292
 HEALTHCHECK --interval=15s --timeout=5s CMD "./healthcheck.js"
 
 # Define the default command.
-CMD ["bundle", "exec", "rackup", "./config.ru", "--host", "0.0.0.0"]
+CMD ["bundle", "exec", "puma"]

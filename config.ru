@@ -1,5 +1,4 @@
 require 'rack'
-require 'rack/protection'
 require 'securerandom'
 require 'sidekiq'
 require 'sidekiq/web'
@@ -10,7 +9,6 @@ require 'sidekiq-status/web'
 
 # Default environment variables
 ENV['SESSION_SECRET'] ||= SecureRandom.hex(64)
-ENV['ORIGIN_WHITELIST'] ||= '*'
 ENV['REDIS_URL'] ||= 'redis://redis'
 
 # Set external encoding to avoid invalid byte sequence when displaying unicode
@@ -31,11 +29,6 @@ end
 
 # Set the session secret
 Sidekiq::Web.set :session_secret, ENV['SESSION_SECRET']
-
-# Configure middleware
-use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
-use Rack::Protection::AuthenticityToken
-# use Rack::Protection, origin_whitelist: ENV['ORIGIN_WHITELIST'].split(',')
 
 # Run the server
 run Sidekiq::Web

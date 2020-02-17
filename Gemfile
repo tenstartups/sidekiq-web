@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'puma'
 gem 'redis-namespace'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
