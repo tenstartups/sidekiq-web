@@ -30,5 +30,9 @@ end
 ENV['SESSION_SECRET'] ||= SecureRandom.hex(64)
 Sidekiq::Web.set :session_secret, ENV['SESSION_SECRET']
 
+# Configure middleware
+ENV['ORIGIN_WHITELIST'] ||= '*'
+use Rack::Protection, origin_whitelist: ENV['ORIGIN_WHITELIST'].split(',')
+
 # Run the server
 run Sidekiq::Web
