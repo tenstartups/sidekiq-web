@@ -1,0 +1,57 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    chronic_duration (0.10.6)
+      numerizer (~> 0.1.1)
+    concurrent-ruby (1.1.6)
+    connection_pool (2.2.2)
+    e2mmap (0.1.0)
+    et-orbi (1.2.2)
+      tzinfo
+    fugit (1.3.3)
+      et-orbi (~> 1.1, >= 1.1.8)
+      raabro (~> 1.1)
+    numerizer (0.1.1)
+    raabro (1.1.6)
+    rack (2.2.2)
+    rack-protection (2.0.8.1)
+      rack
+    redis (4.1.3)
+    redis-namespace (1.7.0)
+      redis (>= 3.0.4)
+    rufus-scheduler (3.6.0)
+      fugit (~> 1.1, >= 1.1.6)
+    sidekiq (6.0.5)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
+    sidekiq-scheduler (3.0.1)
+      e2mmap
+      redis (>= 3, < 5)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 3)
+      thwait
+      tilt (>= 1.4.0)
+    sidekiq-status (1.1.4)
+      chronic_duration
+      sidekiq (>= 3.0)
+    thwait (0.1.0)
+    tilt (2.0.10)
+    tzinfo (2.0.1)
+      concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2019.3)
+      tzinfo (>= 1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  redis-namespace
+  sidekiq
+  sidekiq-scheduler
+  sidekiq-status
+  tzinfo-data
+
+BUNDLED WITH
+   2.1.4
