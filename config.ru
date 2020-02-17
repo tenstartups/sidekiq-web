@@ -34,7 +34,8 @@ Sidekiq::Web.set :session_secret, ENV['SESSION_SECRET']
 
 # Configure middleware
 use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
-use Rack::Protection, origin_whitelist: ENV['ORIGIN_WHITELIST'].split(',')
+use Rack::Protection::AuthenticityToken
+# use Rack::Protection, origin_whitelist: ENV['ORIGIN_WHITELIST'].split(',')
 
 # Run the server
 run Sidekiq::Web
