@@ -1,4 +1,5 @@
 require 'rack'
+require 'securerandom'
 require 'sidekiq'
 require 'sidekiq/web'
 require 'sidekiq-scheduler'
@@ -24,6 +25,10 @@ Sidekiq.configure_client do |config|
       }
     end
 end
+
+# Set the session secret
+ENV['SESSION_SECRET'] ||= SecureRandom.hex(64)
+Sidekiq::Web.set :session_secret, ENV['SESSION_SECRET']
 
 # Run the server
 run Sidekiq::Web

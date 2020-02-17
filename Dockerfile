@@ -1,9 +1,5 @@
 #
-# Sidekiq monitor web application
-#
-# Alpine based sidekiq monitor web application with scheduler gem extension
-#
-# http://github.com/tenstartups/sidekiq-web
+# Sidekiq monitor web application with scheduler and status gem extension.
 #
 
 FROM ruby:alpine
