@@ -30,10 +30,5 @@ end
 # Set the session secret
 Sidekiq::Web.set :session_secret, ENV['SESSION_SECRET']
 
-# Configure rack middleware
-Sidekiq::Web.class_eval do
-  use Rack::Protection, except: :http_origin
-end
-
 # Run the server
 run Sidekiq::Web
