@@ -2,7 +2,7 @@
 # Sidekiq monitor web application with scheduler and status gem extension.
 #
 
-FROM ruby:2.6-alpine
+FROM ruby:alpine
 
 # Set environment variables.
 ENV \
