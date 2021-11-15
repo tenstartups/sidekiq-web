@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'puma'
 gem 'redis-namespace'
-gem 'sidekiq', '~> 6.1.0' # 6.2 breaks Rack sessions
+gem 'sidekiq', '~> 6.2.1' # 6.2 breaks Rack sessions
 gem 'sidekiq-failures'
 gem 'sidekiq-scheduler'
 gem 'sidekiq-status'
