@@ -28,6 +28,9 @@ Sidekiq.configure_client do |config|
     end
 end
 
+# Set the session cookie middleware
+use Rack::Session::Cookie, secret: ENV['SESSION_SECRET'], same_site: true, max_age: 86_400
+
 # Set the session secret
 Sidekiq::Web.set :session_secret, ENV['SESSION_SECRET']
 
