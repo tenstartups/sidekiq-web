@@ -20,9 +20,9 @@ GEM
     redis (4.5.1)
     redis-namespace (1.8.1)
       redis (>= 3.0.4)
-    rufus-scheduler (3.8.0)
+    rufus-scheduler (3.8.1)
       fugit (~> 1.1, >= 1.1.6)
-    sidekiq (6.3.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -61,4 +61,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   2.2.31
+   2.3.5
