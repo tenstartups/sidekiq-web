@@ -5,6 +5,7 @@ require 'sidekiq/web'
 require 'sidekiq-failures'
 require 'sidekiq-scheduler'
 require 'sidekiq-scheduler/web'
+require 'sidekiq-statistic'
 require 'sidekiq-status'
 require 'sidekiq-status/web'
 
