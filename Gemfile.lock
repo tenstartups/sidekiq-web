@@ -13,6 +13,8 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     rack (3.0.3)
+    rack-session (0.3.0)
+      rack (>= 3.0.0.beta1)
     redis-client (0.11.2)
       connection_pool
     sidekiq (7.0.2)
@@ -36,6 +38,7 @@ PLATFORMS
 
 DEPENDENCIES
   puma
+  rack-session
   sidekiq
   sidekiq-cron
   tzinfo-data
