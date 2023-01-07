@@ -5,8 +5,6 @@ require 'sidekiq'
 require 'sidekiq/web'
 require 'sidekiq/cron'
 require 'sidekiq/cron/web'
-# require 'sidekiq_unique_jobs'
-# require 'sidekiq_unique_jobs/web'
 
 # Default environment variables
 ENV['SESSION_SECRET'] ||= SecureRandom.hex(64)
