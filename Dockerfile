@@ -16,7 +16,7 @@ ENV \
   PORT=9292
 
 # Install packages.
-RUN apk --update add bash build-base nodejs && rm -rf /var/cache/apk/*
+RUN apk --update add bash build-base git nodejs && rm -rf /var/cache/apk/*
 
 # Install required ruby gems.
 RUN gem install bundler
