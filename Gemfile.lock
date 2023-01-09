@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/mperham/sidekiq.git
+  revision: b7744086eef6e1b7b00135b46e850138b567eaea
+  specs:
+    sidekiq (7.0.3)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.11.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -15,13 +25,8 @@ GEM
     rack (3.0.3)
     rack-session (0.3.0)
       rack (>= 3.0.0.beta1)
-    redis-client (0.11.2)
+    redis-client (0.12.0)
       connection_pool
-    sidekiq (7.0.2)
-      concurrent-ruby (< 2)
-      connection_pool (>= 2.3.0)
-      rack (>= 2.2.4)
-      redis-client (>= 0.11.0)
     sidekiq-cron (1.9.1)
       fugit (~> 1.8)
       sidekiq (>= 4.2.1)
@@ -39,7 +44,7 @@ PLATFORMS
 DEPENDENCIES
   puma
   rack-session
-  sidekiq
+  sidekiq!
   sidekiq-cron
   tzinfo-data
 
