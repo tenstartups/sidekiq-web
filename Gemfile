@@ -5,6 +5,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'puma'
 gem 'rack-session'
-gem 'sidekiq', github: 'mperham/sidekiq'
+gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'tzinfo-data'
