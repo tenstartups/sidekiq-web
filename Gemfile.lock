@@ -1,23 +1,23 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.0)
     connection_pool (2.3.0)
     et-orbi (1.2.7)
       tzinfo
-    fugit (1.8.0)
+    fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
     nio4r (2.5.8)
-    puma (6.0.2)
+    puma (6.1.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
-    rack (3.0.3)
-    rack-session (0.3.0)
-      rack (>= 3.0.0.beta1)
-    redis-client (0.12.0)
+    rack (3.0.4.1)
+    rack-session (2.0.0)
+      rack (>= 3.0.0)
+    redis-client (0.12.2)
       connection_pool
-    sidekiq (7.0.3)
+    sidekiq (7.0.5)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
@@ -25,7 +25,7 @@ GEM
     sidekiq-cron (1.9.1)
       fugit (~> 1.8)
       sidekiq (>= 4.2.1)
-    tzinfo (2.0.5)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2022.7)
       tzinfo (>= 1.0.0)
@@ -44,4 +44,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   2.3.13
+   2.4.7
