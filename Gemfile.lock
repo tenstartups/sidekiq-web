@@ -12,7 +12,7 @@ GEM
     puma (6.1.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
-    rack (3.0.4.1)
+    rack (3.0.4.2)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     redis-client (0.12.2)
@@ -34,6 +34,7 @@ PLATFORMS
   aarch64-linux-musl
   arm64-darwin-21
   arm64-darwin-22
+  x86_64-linux
   x86_64-linux-musl
 
 DEPENDENCIES
