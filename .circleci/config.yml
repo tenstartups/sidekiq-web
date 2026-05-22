@@ -4,12 +4,22 @@ jobs:
     environment:
       DOCKER_IMAGE: tenstartups/sidekiq-web:latest
       DOCKERFILE: Dockerfile
+      DOCKER_PLATFORMS: linux/amd64,linux/arm64
     machine: true
     steps:
       - checkout
-      - run: docker build --file ${DOCKERFILE} --tag ${DOCKER_IMAGE} .
       - run: docker login --username ${DOCKER_USERNAME} --password ${DOCKER_PASSWORD}
-      - run: docker push ${DOCKER_IMAGE}
+      - run: |
+          docker buildx create --name multiarch-builder --use 2>/dev/null \
+            || docker buildx use multiarch-builder
+          docker buildx inspect --bootstrap
+      - run: |
+          docker buildx build \
+            --platform "${DOCKER_PLATFORMS}" \
+            --file "${DOCKERFILE}" \
+            --tag "${DOCKER_IMAGE}" \
+            --push \
+            .
 
 workflows:
   version: 2
