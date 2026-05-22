@@ -12,7 +12,6 @@ ENV \
   BUNDLE_GIT__ALLOW_INSECURE=true \
   BUNDLE_IGNORE_MESSAGES=true \
   BUNDLE_PATH=/usr/local/lib/ruby/bundler \
-  BUNDLE_SILENCE_ROOT_WARNING=true \
   PORT=9292
 
 # Install packages.
@@ -37,6 +36,14 @@ COPY entrypoint.sh /docker-entrypoint
 COPY config.ru ./
 COPY healthcheck.js ./
 
+ARG APP_UID=1001
+ARG APP_GID=1001
+RUN addgroup -g "${APP_GID}" -S app \
+  && adduser -u "${APP_UID}" -S -G app -h /usr/src/app -D app \
+  && chown -R app:app /usr/src/app /docker-entrypoint \
+  && chmod +x /docker-entrypoint ./healthcheck.js \
+  && chmod -R a+rX /usr/local/lib/ruby/bundler
+
 # Expose the standard rack port.
 EXPOSE ${PORT}
 
@@ -45,3 +52,5 @@ HEALTHCHECK --interval=15s --timeout=5s CMD "./healthcheck.js"
 
 # Set the entrypoint script.
 ENTRYPOINT ["/docker-entrypoint"]
+
+USER app:app
