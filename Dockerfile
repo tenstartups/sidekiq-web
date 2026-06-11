@@ -33,6 +33,7 @@ RUN bundle install
 
 # Copy the remaining files into place.
 COPY entrypoint.sh /docker-entrypoint
+COPY config/puma.rb config/puma.rb
 COPY config.ru ./
 COPY healthcheck.js ./
 

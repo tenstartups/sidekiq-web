@@ -2,7 +2,7 @@
 set -e
 
 if [ -z "$@" ]; then
-  exec bundle exec puma --environment "${APP_ENV}" --bind "tcp://0.0.0.0:${PORT}" ./config.ru
+  exec bundle exec puma -C config/puma.rb ./config.ru
 else
   exec "$@"
 fi
